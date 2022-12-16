@@ -19,9 +19,10 @@ const storeSchema = new Schema({
     required: true
   },
   embeddedInventory: {
-    type: 
+    type: []
   }
-
-})
+}, {
+  timestamps: true
+});
 
 module.exports = mongoose.model('Store', storeSchema);
