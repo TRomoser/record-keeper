@@ -1,13 +1,14 @@
 const fetch = require('node-fetch');
-const API_KEY = process.env.API_KEY;
+const TOKEN = process.env.DISCOGS_TOKEN;
+const KEY = process.env.CONSUMER_KEY;
+const SECRET = process.env.CONSUMER_SECRET;
 const Item = require('../../models/item');
 
 module.exports = {
-  getItemAPI,
-  getItemDetail
+  searchRecordAPI,
 }
 
-async function getItemAPI(req, res) {
+async function searchRecordAPI(req, res) {
   try {
     let response = await fetch(`https://api.discogs.com/database/search?q=814867021951&type=release&token=IZcuSFRFUwaJmmgiZSkyFmvNPniGlrnUGsNHwmCA`)
     let items = await response.json()
@@ -35,7 +36,7 @@ async function getItemAPI(req, res) {
   }
 }
 
-async function getItemDetail(req, res) {
+async function searchRecordDetail(req, res) {
   try {
     let response = await fetch(``);
     let items = await response.json();
