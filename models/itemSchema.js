@@ -1,59 +1,77 @@
 const Schema = require('mongoose').Schema;
 
+// const itemSchema = new Schema({
+//   title: {
+//     type: String,
+//     required: true,
+//   },
+//   id: {
+//     type: Number,
+//     unique: true,
+//     required: true,
+//   },
+//   artists: {
+//     type: Object,
+//   },
+//   // IS THIS A BETTER WAY??
+//   // type: mongoose.Schema.Types.ObjectId,
+//   //     ref: 'Artist',
+//   companies: {
+//     type: [Object],
+//   },
+//   estimatedWeight: {
+//     type: Number,
+//   },
+//   extraArtists: {
+//     type: [Object],
+//   },
+//   formats: {
+//     type: [Object],
+//   },
+//   genres: {
+//     type: [String],
+//   },
+//   styles: {
+//     type: String,
+//   },
+//   identifiers: {
+//     type: [Object],
+//   },
+//   labels: {
+//     type: [Object],
+//   },
+//   lowestPrice: {
+//     type: Number,
+//   },
+//   released: {
+//     type: Date,
+//   },
+//   tracklist: {
+//     type: [Object],
+//   },
+//   year: {
+//     type: Date,
+//   }
+// }, {
+//   timestamps: true
+// });
+
 const itemSchema = new Schema({
-  title: {
-    type: String,
-    required: true,
-  },
-  id: {
-    type: Number,
-    unique: true,
-    required: true,
-  },
-  artists: {
-    type: Object,
-  },
-  // IS THIS A BETTER WAY??
-  // type: mongoose.Schema.Types.ObjectId,
-  //     ref: 'Artist',
-  companies: {
-    type: [Object],
-  },
-  estimatedWeight: {
-    type: Number,
-  },
-  extraArtists: {
-    type: [Object],
-  },
-  formats: {
-    type: [Object],
-  },
-  genres: {
-    type: [String],
-  },
-  styles: {
+  country: {
     type: String,
   },
-  identifiers: {
-    type: [Object],
+  year: String,
+  format: {
+    type: String,
   },
-  labels: {
-    type: [Object],
-  },
-  lowestPrice: {
-    type: Number,
-  },
-  released: {
-    type: Date,
-  },
-  tracklist: {
-    type: [Object],
-  },
-  year: {
-    type: Date,
-  }
-}, {
-  timestamps: true
-});
+  type: String,
+  genre: String,
+  style: String,
+  id: Number,
+  barcode: String,
+  master_url: String,
+  catno: String,
+  formats: Object
+})
 
 module.exports = itemSchema;
