@@ -1,3 +1,5 @@
+import RecordDetailPage from '../RecordDetailPage/RecordDetailPage'
+
 export default function InventoryPage() {
 
   return (
