@@ -3,7 +3,7 @@ const BASE_URL = '/api/records';
 
 
 export function searchAPI(search) {
-  return sendRequest(`${BASE_URL}/search?q=${search}`)
+  return sendRequest(`${BASE_URL}/records`, 'POST', search)
 }
 
 

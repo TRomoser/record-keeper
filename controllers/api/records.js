@@ -1,20 +1,22 @@
 const fetch = require('node-fetch');
-const TOKEN = process.env.DISCOGS_TOKEN;
-const KEY = process.env.CONSUMER_KEY;
-const SECRET = process.env.CONSUMER_SECRET;
+const BASE_URL = 'https://api.discogs.com/database/'
+const API_TOKEN = process.env.DISCOGS_TOKEN;
+const API_KEY = process.env.CONSUMER_KEY;
+const API_SECRET = process.env.CONSUMER_SECRET;
 const Item = require('../../models/item');
 
 module.exports = {
-  searchRecordAPI,
+  searchAPI,
 }
 
-async function searchRecordAPI(req, res) {
+async function searchAPI(req, res) {
   try {
-    let response = await fetch(`https://api.discogs.com/database/search?q=814867021951&type=release&token=IZcuSFRFUwaJmmgiZSkyFmvNPniGlrnUGsNHwmCA`)
-    let items = await response.json()
+    console.log('REQUEST ', req);
+    let response = await fetch(`${BASE_URL}search?q=814867021951&type=release&token=${API_TOKEN}`)
+    let items = await response.json();
     console.log(items.results);
     if (!exists) {
-      await Item.create({
+      const record = await Item.create({
         country: items.country,
         year: items.year,
         format: items.format,
@@ -27,21 +29,20 @@ async function searchRecordAPI(req, res) {
         catno: items.catno,
         formats: items.format
         });
-      return null
+      console.log('RECORD ', record);
     } 
-    return null
   }
   catch (err) {
     res.status(400).json(err);
   }
 }
 
-async function searchRecordDetail(req, res) {
-  try {
-    let response = await fetch(``);
-    let items = await response.json();
-    res.json(items)
-  } catch (err) {
-    res.status(400).json(err)
-  }
-}
+// async function searchRecordDetail(req, res) {
+//   try {
+//     let response = await fetch(``);
+//     let items = await response.json();
+//     res.json(items)
+//   } catch (err) {
+//     res.status(400).json(err)
+//   }
+// }

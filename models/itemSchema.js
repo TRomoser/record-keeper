@@ -71,7 +71,9 @@ const itemSchema = new Schema({
   barcode: String,
   master_url: String,
   catno: String,
-  formats: Object
+  formats: Object,
+  notes: String
+  } 
 })
 
-module.exports = itemSchema;
+module.exports = mongoose.model('Item', itemSchema);

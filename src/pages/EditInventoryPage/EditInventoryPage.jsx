@@ -1,4 +1,4 @@
-export default function EditInvtoryPage() {
+export default function EditInventoryPage() {
 
   return (
     <div>

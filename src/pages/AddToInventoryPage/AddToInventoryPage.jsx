@@ -1,11 +1,11 @@
-import SearchForm from "../../components/SearchForm/SearchForm";
+import SearchApiForm from "../../components/SearchApiForm/SearchApiForm";
 
-export default function AddToInventoryPage() {
+export default function AddToInventoryPage({ handleSearch }) {
 
   return (
     <div>
       <h1>Add To Inventory</h1>
-      <SearchForm />
+      <SearchApiForm handleSearch={handleSearch} />
     </div>
   )
 }
