@@ -16,5 +16,5 @@ export function index() {
 }
 
 export function create(newRecord) {
-  return sendRequest(`${BASE_URL}/new`, 'POST', newRecord)
+  return sendRequest(BASE_URL, 'POST', newRecord)
 }

@@ -1,30 +1,34 @@
 import { useState } from "react"
 
-export default function SearchApiForm({ handleSearch }) {
-  const [searchData, setSearchData] = useState({
+export default function SearchApiForm({ handleAddRecord }) {
+  const [formData, setFormData] = useState({
     artist: '',
+    style: '',
+    year: '',
     barcode: ''
   });
 
   function handleChange(evt) {
-    setSearchData({...searchData, [evt.target.name]: evt.target.value});
+    setFormData({...formData, [evt.target.name]: evt.target.value});
   };
 
-  function handleSearchSubmit(evt) {
+  async function handleAddSubmit(evt) {
     evt.preventDefault();
-    var search = Object.keys(searchData).map(key => `${key}=${searchData[key]}`).join("&");
-    handleSearch(search);
-    setSearchData({
+    handleAddRecord(formData);
+    setFormData({
       artist: '',
+      style: '',
+      year: '',
       barcode: ''
     });
-  }
+    };
 
   return (
     <div>
+      <h1>Add Record Form</h1>
       <form 
       autoComplete="off"
-      onSubmit={handleSearchSubmit}
+      onSubmit={handleAddSubmit}
       >
         <label htmlFor="artist">Artist / Title</label>
           <input 
@@ -54,7 +58,7 @@ export default function SearchApiForm({ handleSearch }) {
           placeholder="Barcode"
           onChange={handleChange} 
         />
-        <button type="submit">Search Discogs</button>
+        <button type="submit">Add Record</button>
       </form>
     </div>
   )

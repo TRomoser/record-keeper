@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
+import SplashPage from '../SplashPage/SplashPage';
 import NavBar from '../../components/NavBar/NavBar';
 import InventoryPage from '../InventoryPage/InventoryPage';
 import AddToInventoryPage from '../AddToInventoryPage/AddToInventoryPage';
@@ -23,7 +24,8 @@ export default function App() {
             </Routes>
           </>
           :
-          <AuthPage setUser={setUser} />
+          // <SplashPage user={user} />
+          <AuthPage user={user} />
       }
     </main>
   );

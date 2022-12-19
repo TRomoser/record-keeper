@@ -58,25 +58,29 @@ const Schema = require('mongoose').Schema;
 // });
 
 const itemSchema = new Schema({
+  artist: String,
+  year: String,
+  title: String,
   country: {
     type: String,
   },
-  year: String,
   format: {
-    type: String,
+    type: [String],
   },
   type: String,
   genre: {
-    type: Schema.Types.ObjectId,
-    ref: 'Category',
-    required: true
+    type: [String],
+    // type: Schema.Types.ObjectId,
+    // ref: 'Category',
+    // required: true
   },
-  style: String,
+  style: [String],
   id: Number,
-  barcode: String,
+  barcode: [String],
+  uri: String,
   master_url: String,
   catno: String,
-  formats: Object,
+  formats: [Object],
   notes: String,
 })
 

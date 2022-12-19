@@ -8,10 +8,11 @@ const Record = require('../../models/item');
 module.exports = {
   searchDiscogsAPI,
   index,
-  // show,
+  show,
+  update,
   create,
-  // edit,
-  // delete: deleteRecord
+  edit,
+  delete: deleteRecord
 }
 
 async function searchDiscogsAPI(req, res) {
@@ -25,26 +26,40 @@ async function index(req, res) {
   res.json(records);
 }
 
-// async function show(req, res) {
-//   const record = Record.findById(req.params.id);
-//   res.json(record)
-// }
+async function show(req, res) {
+  const record = Record.findById(req.params.id);
+  res.json(record)
+}
+
+async function updateNote(req ,res) {
+  try{
+    await Record.findByIdAndUpdate(
+      {_id: req.params.id}, req.body
+      )
+    const record = await Record.find({user: req.user._id});
+    res.json(note);
+  } catch(err) {
+    return next(err);
+  }
+} 
 
 async function create(req, res) {
   req.body.user = req.user._id;
-  try {
+  // try {
     const record = await Record.create(req.body);
     res.json(record);
-  } catch (err) {
-    res.status(400).json(err);
-  }
+  // } catch (err) {
+    // res.status(400).json(err);
+  // }
 }
 
-// async function deleteRecord(req, res) {
-//   req.body.user = req.user._id;
-//   const record = await Record.findByIdAndDelete(req.params.id);
-//   res.json(record);
-// }
+async function deleteRecord(req, res) {
+  req.body.user = req.user._id;
+  const record = await Record.findByIdAndDelete(req.params.id);
+  res.json(record);
+}
+
+
 
 
 // async function searchAPI(req, res) {
