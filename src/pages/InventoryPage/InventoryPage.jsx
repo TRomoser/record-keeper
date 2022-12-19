@@ -1,23 +1,29 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 // import RecordDetailPage from '../RecordDetailPage/RecordDetailPage'
 // import LineItem from '../../components/LineItem/LineItem'
-import AddToInventoryPage from '../AddToInventoryPage/AddToInventoryPage'
+import SearchInventoryForm from '../../components/SearchInventoryForm/SearchInventoryForm'
+import * as recordsAPI from '../../utilities/records-api'
+import { getUser } from '../../utilities/users-service';
 
 
 export default function InventoryPage() {
-  const [recordData, setRecordData] = useState([{}])
+  const [user, setUser] = useState(getUser());
+  const [recordData, setRecordData] = useState([{}]);
+
+  useEffect(function() {
+    async function getInventory() {
+      const inventory = await recordsAPI.index();
+      setRecordData(inventory);
+    }
+    if (user) getInventory();
+  }, [user])
 
   return (
     <div>
-      <h1>Search Discogs</h1>
-      <AddToInventoryPage />
+      <h1>Search Inventory</h1>
+      <SearchInventoryForm />
       <h1>Inventory</h1>
-      <div>{recordData.map(r => r)}</div>
-      {/* {records.map((data) => {
-                return (
-                  <LineItem />
-                )
-            })} */}
+      {/* <div>{recordData.map(r => r)}</div> */}
     </div>
   )
 }

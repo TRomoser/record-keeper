@@ -3,11 +3,49 @@ const BASE_URL = 'https://api.discogs.com/database/'
 const API_TOKEN = process.env.DISCOGS_TOKEN;
 const API_KEY = process.env.CONSUMER_KEY;
 const API_SECRET = process.env.CONSUMER_SECRET;
-const Item = require('../../models/item');
+const Record = require('../../models/item');
 
 module.exports = {
   searchDiscogsAPI,
+  index,
+  show,
+  create,
+  edit,
+  delete: deleteRecord
 }
+
+async function searchDiscogsAPI(req, res) {
+  const search = await fetch(`${BASE_URL}search?q=&${req.query.q}&token=${API_TOKEN}`).then(r => r.json()).then(data => data.results);
+  res.json(search);
+}
+
+async function index(req, res) {
+  const records = await Record.find({}).populate('category').exec();
+  res.json(records);
+}
+
+async function show(req, res) {
+  const record = Record.findById(req.params.id);
+  res.json(record)
+}
+
+async function create(req, res) {
+  req.body.user = req.user._id;
+  try {
+    const record = await Record.create(req.body);
+    res.json(record);
+  } catch (err) {
+    res.stats(400).json(err);
+  }
+}
+
+async function deleteRecord(req, res) {
+  req.body.user = req.user._id;
+  const record = await Record.findByIdAndDelete(req.params.id);
+  res.json(record);
+}
+
+
 
 // async function searchAPI(req, res) {
 //   try {
@@ -44,12 +82,3 @@ module.exports = {
 //     res.status(400).json(err)
 //   }
 // }
-
-
-async function searchDiscogsAPI(req, res) {
-    console.log(req.query.q)
-    const records = await fetch(`${BASE_URL}search?q=&${req.query.q}&token=${API_TOKEN}`).then(r => r.json()).then(data => data.results);
-    console.log('This is backend: ' + records);
-    res.json(records);
-}
-

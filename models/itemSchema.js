@@ -66,7 +66,11 @@ const itemSchema = new Schema({
     type: String,
   },
   type: String,
-  genre: String,
+  genre: {
+    type: Schema.Types.ObjectId,
+    ref: 'Category',
+    required: true
+  },
   style: String,
   id: Number,
   barcode: String,
@@ -74,8 +78,6 @@ const itemSchema = new Schema({
   catno: String,
   formats: Object,
   notes: String,
-}, {
-  timeseries: true
 })
 
 module.exports = itemSchema;

@@ -12,6 +12,8 @@ export default function SearchApiForm({ handleSearch }) {
 
   function handleSearchSubmit(evt) {
     evt.preventDefault();
+    // This converts the info submitted into a string usable 
+    // by the Discogs api
     var search = Object.keys(searchData).map(key => `${key}=${searchData[key]}`).join("&");
     handleSearch(search);
     setSearchData({
@@ -54,7 +56,7 @@ export default function SearchApiForm({ handleSearch }) {
           placeholder="Barcode"
           onChange={handleChange} 
         />
-        <button type="submit">Search for Records</button>
+        <button type="submit">Search Record</button>
       </form>
     </div>
   )
