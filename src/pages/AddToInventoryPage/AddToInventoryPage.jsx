@@ -4,10 +4,10 @@ import * as recordsAPI from '../../utilities/records-api'
 
 export default function AddToInventoryPage({inventory, setInventory}) {
   const [recordData, setRecordData] = useState([{
-    title: 'title',
-
-  }, {
-    title: 'Me'
+    title: '',
+    style: '',
+    year: '',
+    barcode: ''
   }]);
 
   async function handleSearch(recordSearchData) {
