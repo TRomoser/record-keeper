@@ -7,6 +7,6 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 // router.get('/', ensureLoggedIn, recordsCtrl.index);
 
-router.post('/records', ensureLoggedIn, recordsCtrl.searchApi)
+router.get('/search',recordsCtrl.searchDiscogsAPI)
 
 module.exports = router;

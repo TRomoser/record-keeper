@@ -1,4 +1,5 @@
 const Schema = require('mongoose').Schema;
+// const mongoose = require('mongoose')
 
 // const itemSchema = new Schema({
 //   title: {
@@ -72,8 +73,9 @@ const itemSchema = new Schema({
   master_url: String,
   catno: String,
   formats: Object,
-  notes: String
-  } 
+  notes: String,
+}, {
+  timeseries: true
 })
 
-module.exports = mongoose.model('Item', itemSchema);
+module.exports = itemSchema;

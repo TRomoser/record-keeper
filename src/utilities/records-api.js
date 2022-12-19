@@ -2,8 +2,8 @@ import sendRequest from "./send-request";
 const BASE_URL = '/api/records';
 
 
-export function searchAPI(search) {
-  return sendRequest(`${BASE_URL}/records`, 'POST', search)
+export function searchAPI(query) {
+  return sendRequest(`${BASE_URL}/search?q=${query}`)
 }
 
 

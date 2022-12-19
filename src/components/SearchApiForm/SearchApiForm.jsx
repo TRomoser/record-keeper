@@ -3,18 +3,19 @@ import { useState } from "react"
 export default function SearchApiForm({ handleSearch }) {
   const [searchData, setSearchData] = useState({
     artist: '',
-    title: ''
+    barcode: ''
   });
 
   function handleChange(evt) {
-    setSearchData({[evt.target.name]: evt.target.value});
+    setSearchData({...searchData, [evt.target.name]: evt.target.value});
   };
 
   function handleSearchSubmit(evt) {
     evt.preventDefault();
-    handleSearch(searchData);
+    var search = Object.keys(searchData).map(key => `${key}=${searchData[key]}`).join("&");
+    handleSearch(search);
     setSearchData({
-      name: '',
+      artist: '',
       barcode: ''
     });
   }
@@ -25,20 +26,20 @@ export default function SearchApiForm({ handleSearch }) {
       autoComplete="off"
       onSubmit={handleSearchSubmit}
       >
-        <label htmlFor="name">
+        <label htmlFor="name">Artist</label>
           <input 
           type="text" 
-          name="name" 
+          name="artist"
+          placeholder="Artist" 
           onChange={handleChange} 
         />
-        </label>
-        <label htmlFor="barcode">
+        <label htmlFor="barcode">Barcode</label>
           <input 
           type="text" 
           name="barcode" 
+          placeholder="Barcode"
           onChange={handleChange} 
         />
-        </label>
         <button type="submit">Search Record</button>
       </form>
     </div>

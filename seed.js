@@ -4,12 +4,14 @@ require('./config/database');
 const fetch = require('node-fetch');
 const ROOT_URL = 'https://api.discogs.com/database/';
 const token = process.env.DISCOGS_TOKEN;
-const record = require('./models/record');
+const record = require('./models/itemSchema');
 
 async function getRecord(req, res, next) {
-    const data = await fetch(`https://api.discogs.com/database/search?q=nirvana&type=master&title=release_title=nevermind&year=1991&format=album&token=${token}`);
-    const recordData = await data.json();
-    for (record of recordData) {
+    const response = await fetch(`https://api.discogs.com/database/search?q=nirvana&title=nevermind&country=us&type=release&year=1991&barcode=720642442517&token=${token}`);
+    const recordData = await response.json();
+    console.log(recordData)
+    // res.json(recordData);
+    // for (record of recordData) {
         const exists = await Item.exists({apiId:record.id})
         if (!exists) {
             await Item.create({
@@ -26,7 +28,7 @@ async function getRecord(req, res, next) {
               formats: items.format
             })
         }
-    }
+    // }
     console.log('Finished!');
 }
 
