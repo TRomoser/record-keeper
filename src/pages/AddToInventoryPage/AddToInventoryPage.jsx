@@ -5,12 +5,23 @@ import * as recordsAPI from '../../utilities/records-api'
 
 export default function AddToInventoryPage({inventory, setInventory}) {
   const [switchForm, setSwitchForm] = useState(true)
-  const [recordData, setRecordData] = useState([{
-    title: '',
-    style: '',
+  const [recordData, setRecordData] = useState({
+    artist: '',
     year: '',
-    barcode: ''
-  }]);
+    title: '',
+    country: '',
+    format: [],
+    type: '',
+    genre: [],
+    style: [],
+    id: '',
+    barcode: [],
+    uri: '',
+    master_url: '',
+    catno: '',
+    formats: [],
+    notes: ''
+  });
 
   function handleSwitchForm() {
     setSwitchForm(!switchForm)

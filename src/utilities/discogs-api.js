@@ -6,7 +6,6 @@ export function searchItems(search) {
   return sendRequest(`${BASE_URL}/search?q=${search}`)
 }
 
-
 export async function getAll() {
   return sendRequest(BASE_URL);
 }

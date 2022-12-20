@@ -16,5 +16,13 @@ export function index() {
 }
 
 export function create(newRecord) {
-  return sendRequest(BASE_URL, 'POST', newRecord)
+  return sendRequest(BASE_URL, 'POST', newRecord);
+}
+
+export function deleteRecord() {
+  return sendRequest(`${BASE_URL}/${id}`, 'DELETE');
+}
+
+export function updateRecord(id, recordData) {
+  return sendRequest(`${BASE_URL}/update/${id}`, 'PUT', recordData);
 }

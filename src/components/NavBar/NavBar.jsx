@@ -9,12 +9,18 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <nav>
-      <Link to="/inventory">Inventory</Link>
-      &nbsp; | &nbsp;
-      <Link to="/inventory/new">Add To Inventory</Link>
-      &nbsp;&nbsp;
-      <span>Welcome, {user.name}</span>
-      &nbsp;&nbsp;<Link to="" onClick={handleLogOut}>Log Out</Link>
+      { user ?
+      <>
+        <Link to="/inventory">Inventory | </Link>
+        
+        <Link to="/inventory/new">Add To Inventory | </Link>
+        
+        <span>Welcome, {user.name} | </span>
+        <Link to="" onClick={handleLogOut}>Log Out</Link>
+        </>
+        :
+        <Link to="/authpage">Log In</Link>
+      }
     </nav>
   );
 }

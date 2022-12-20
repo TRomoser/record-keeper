@@ -3,7 +3,20 @@ import { useState } from "react"
 export default function SearchApiForm({ handleSearch }) {
   const [searchData, setSearchData] = useState({
     artist: '',
-    barcode: ''
+    year: '',
+    title: '',
+    country: '',
+    format: [],
+    type: '',
+    genre: [],
+    style: [],
+    id: '',
+    barcode: [],
+    uri: '',
+    master_url: '',
+    catno: '',
+    formats: [],
+    notes: ''
   });
 
   function handleChange(evt) {
@@ -21,7 +34,7 @@ export default function SearchApiForm({ handleSearch }) {
   }
 
   return (
-    <div>
+    <div className="form-container">
       <form 
       autoComplete="off"
       onSubmit={handleSearchSubmit}

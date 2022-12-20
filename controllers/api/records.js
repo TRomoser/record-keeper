@@ -21,7 +21,8 @@ async function searchDiscogsAPI(req, res) {
 }
 
 async function index(req, res) {
-  const records = await Record.find({}).populate('category').exec();
+  const records = await Record.find({})
+  // .populate('category').exec();
   res.json(records);
 }
 
@@ -54,5 +55,9 @@ async function deleteRecord(req, res) {
   res.json(record);
 }
 
+// async function deleteAll(req, res) {
+//   req.body.user = req.user._id;
+//   await FileSystemEntry.deleteMany({})
+// }
 
 
