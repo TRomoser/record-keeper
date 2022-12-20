@@ -23,7 +23,7 @@ export default function InventoryPage() {
       <h1>Search Inventory</h1>
       <SearchInventoryForm />
       <h1>Inventory</h1>
-      {/* <div>{recordData.map(r => r)}</div> */}
+      {recordData.map(r => r)}
     </div>
   )
 }

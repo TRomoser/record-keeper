@@ -7,6 +7,20 @@ export function searchItems(search) {
 }
 
 
-export function getItemDetail(id) {
-  return sendRequest(`${BASE_URL}/detail?q=${id}`)
+export async function getAll() {
+  return sendRequest(BASE_URL);
+}
+
+export async function getById(id) {
+    return sendRequest(`${BASE_URL}/${id}`);
+  }
+
+export async function create(record) {
+    return sendRequest(BASE_URL, "POST", record);
+}
+export async function deleteNote(id) {
+    return sendRequest(`${BASE_URL}/${id}`, "DELETE");
+}
+export async function updateNote(id, recordFormData) {
+    return sendRequest(`${BASE_URL}/update/${id}`, "PUT", recordFormData);
 }
