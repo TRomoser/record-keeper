@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import SearchApiForm from "../../components/SearchApiForm/SearchApiForm";
 import AddInventoryForm from "../../components/AddInventoryForm/AddInventoryForm"
 import * as recordsAPI from '../../utilities/records-api'
 
 export default function AddToInventoryPage({inventory, setInventory}) {
+  const navigate = useNavigate();
   const [switchForm, setSwitchForm] = useState(true)
   const [recordData, setRecordData] = useState({
     artist: '',
@@ -36,6 +38,10 @@ export default function AddToInventoryPage({inventory, setInventory}) {
     const newRecord = await recordsAPI.create(record);
     // This part may cause an issue with getInventory on InventoryPage
     setInventory([...inventory, newRecord]);
+    navigate('/inventory');
+  }
+
+  function handleNavigate() {
   }
 
   return (
@@ -58,7 +64,9 @@ export default function AddToInventoryPage({inventory, setInventory}) {
                   <p>Type: {record.type}</p>
                   <p>Style: {record.style}</p>
                   <form onSubmit={() => handleAddRecord(record)}>
-                    <button type="submit">Add Record To Inventory</button>
+                    <button 
+                      onClick={handleNavigate}
+                      type="submit">Add Record To Inventory</button>
                   </form>
                 </div>
               );

@@ -1,6 +1,8 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 export default function SearchApiForm({ handleSearch }) {
+  const navigate = useNavigate();
   const [searchData, setSearchData] = useState({
     artist: '',
     year: '',
@@ -45,7 +47,7 @@ export default function SearchApiForm({ handleSearch }) {
       notes: ''
     });
   }
-
+  
   return (
     <div className="form-container">
       <form

@@ -7,6 +7,7 @@ import SplashPage from '../SplashPage/SplashPage';
 import NavBar from '../../components/NavBar/NavBar';
 import InventoryPage from '../InventoryPage/InventoryPage';
 import AddToInventoryPage from '../AddToInventoryPage/AddToInventoryPage';
+import RecordDetailPage from '../RecordDetailPage/RecordDetailPage'
 import * as recordsAPI from '../../utilities/records-api'
 
 export default function App() {
@@ -38,6 +39,7 @@ export default function App() {
               {/* Route components in here */}
               <Route path="/inventory" element={<InventoryPage inventory={inventory} />} />
               <Route path="/inventory/new" element={<AddToInventoryPage setInventory={setInventory} />} />
+              <Route path="/inventory/:id" element={<RecordDetailPage user={user} inventory={inventory} handleDeleteRecord={handleDeleteRecord} />} />
               <Route path="/*" element={<Navigate to='/inventory' />} />
             </Routes>
           </>

@@ -1,6 +1,8 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 export default function SearchApiForm({ handleSearch }) {
+  const navigate = useNavigate();
   const [searchData, setSearchData] = useState({
     artist: '',
     barcode: ''

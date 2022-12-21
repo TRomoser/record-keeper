@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function AddInventoryForm({ handleAddRecord }) {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     artist: '',
     year: '',
@@ -44,8 +45,11 @@ export default function AddInventoryForm({ handleAddRecord }) {
       formats: [],
       notes: ''
       });
-      <Navigate to='/inventory' />
   };
+
+  function handleNavigate() {
+    navigate('/inventory')
+  }
 
   return (
     <div className="form-container">
@@ -159,7 +163,9 @@ export default function AddInventoryForm({ handleAddRecord }) {
           placeholder="Notes"
           onChange={handleChange}
         />
-        <button type="submit">Add Record</button>
+        <button 
+        onClick={handleNavigate} 
+        type="submit">Add Record</button>
       {/* </div> */}
       </form>
     </div>

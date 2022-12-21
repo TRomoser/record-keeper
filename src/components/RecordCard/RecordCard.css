@@ -1,0 +1,15 @@
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  color: var(--blue-1);
+  border: .3vw dotted black;
+  padding: .5vw;
+}
+
+.card-left {
+  grid-column: 1;
+}
+
+.card-right {
+  grid-column: 2;
+}

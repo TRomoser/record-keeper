@@ -1,4 +1,8 @@
-export default function ItemDetailPage() {
+import { useParams } from "react-router-dom";
+import EditRecordForm from "../../components/EditRecordForm/EditRecordForm";
+
+export default function ItemDetailPage({inventory, handleDeleteRecord}) {
+  const {recordId} = useParams();
 
   return (
     <div>

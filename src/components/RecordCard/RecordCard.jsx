@@ -1,8 +1,9 @@
-import { useState } from "react"
+import './RecordCard.css';
+import { Link } from 'react-router-dom';
+import { useState } from "react";
 
 export default function RecordCard(record, idx) {
   const [cardOpened, setCardOpened] = useState(false);
-  console.log(record.r.uri)
 
   return (
   <div key={idx} className="card">
@@ -29,6 +30,9 @@ export default function RecordCard(record, idx) {
           ))}
         </>
       ))}</p>
+      <Link to={`/inventory/${record.r._id}`} >
+        <button>See Details</button>
+      </Link>
     </div>
   </div>
   )
