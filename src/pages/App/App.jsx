@@ -39,7 +39,7 @@ export default function App() {
               {/* Route components in here */}
               <Route path="/inventory" element={<InventoryPage inventory={inventory} />} />
               <Route path="/inventory/new" element={<AddToInventoryPage setInventory={setInventory} />} />
-              <Route path="/inventory/:id" element={<RecordDetailPage user={user} inventory={inventory} handleDeleteRecord={handleDeleteRecord} />} />
+              <Route path="/inventory/:recordId" element={<RecordDetailPage user={user} inventory={inventory} handleDeleteRecord={handleDeleteRecord} />} />
               <Route path="/*" element={<Navigate to='/inventory' />} />
             </Routes>
           </>

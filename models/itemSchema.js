@@ -68,12 +68,12 @@ const itemSchema = new Schema({
     type: [String],
   },
   type: String,
-  genre: {
-    type: [String],
+  genre: [String],
+    // type: [String],
     // type: Schema.Types.ObjectId,
     // ref: 'Category',
     // required: true
-  },
+  // },
   style: [String],
   id: Number,
   barcode: [String],
