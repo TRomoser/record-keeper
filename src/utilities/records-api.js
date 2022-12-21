@@ -19,7 +19,7 @@ export function create(newRecord) {
   return sendRequest(BASE_URL, 'POST', newRecord);
 }
 
-export function deleteRecord() {
+export function deleteRecord(id) {
   return sendRequest(`${BASE_URL}/${id}`, 'DELETE');
 }
 

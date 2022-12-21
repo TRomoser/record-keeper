@@ -37,7 +37,7 @@ export default function App() {
             <Routes>
               {/* Route components in here */}
               <Route path="/inventory" element={<InventoryPage inventory={inventory} />} />
-              <Route path="/inventory/new" element={<AddToInventoryPage handleAddRecord={handleAddRecord} />} />
+              <Route path="/inventory/new" element={<AddToInventoryPage setInventory={setInventory} />} />
               <Route path="/*" element={<Navigate to='/inventory' />} />
             </Routes>
           </>
