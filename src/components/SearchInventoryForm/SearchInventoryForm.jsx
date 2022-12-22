@@ -5,7 +5,20 @@ export default function SearchApiForm({ handleSearch }) {
   const navigate = useNavigate();
   const [searchData, setSearchData] = useState({
     artist: '',
-    barcode: ''
+    year: '',
+    title: '',
+    country: '',
+    format: [],
+    type: '',
+    genre: [],
+    style: [],
+    id: '',
+    barcode: [],
+    uri: '',
+    master_url: '',
+    catno: '',
+    formats: [],
+    notes: ''
   });
 
   function handleChange(evt) {

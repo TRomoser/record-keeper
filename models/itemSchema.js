@@ -58,30 +58,65 @@ const Schema = require('mongoose').Schema;
 // });
 
 const itemSchema = new Schema({
-  artist: String,
-  year: String,
-  title: String,
+  artist: {
+    type: String,
+    default: ''
+  },
+  year: {
+    type: String,
+    default: ''
+  },
+  title: {
+    type: String,
+    default: ''
+  },
   country: {
     type: String,
+    default: ''
   },
   format: {
     type: [String],
+    default: ['']
   },
-  type: String,
-  genre: [String],
-    // type: [String],
-    // type: Schema.Types.ObjectId,
-    // ref: 'Category',
-    // required: true
-  // },
-  style: [String],
-  id: Number,
-  barcode: [String],
-  uri: String,
-  master_url: String,
-  catno: String,
-  formats: [Object],
-  notes: String,
+  type: {
+    type: String,
+    default: ''
+  },
+  genre: {
+    type: [String],
+    default: ['']
+  },
+  style: { 
+    type: [String],
+    default: ''
+  },
+  id: {
+    type: Number,
+    default: null
+  },
+  barcode: {
+    type: [String],
+    default: ['']
+  },
+  uri: {
+    type: String,
+    default: ''},
+  master_url: {
+    type: String,
+    default: ''
+  },
+  catno: {
+    type: String,
+    default: ''
+  },
+  formats: {
+    type: [Object],
+    default: [{}]
+  },
+  notes: {
+    type: String,
+    default: ''
+  }
 })
 
 module.exports = itemSchema;
