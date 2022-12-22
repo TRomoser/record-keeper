@@ -38,13 +38,16 @@ export default function AddToInventoryPage({inventory, setInventory}) {
   async function handleAddRecord(record) {
     const newRecord = await recordsAPI.create(record);
     // This part may cause an issue with getInventory on InventoryPage
+    console.log(newRecord)
     setInventory([...inventory, newRecord]);
+    navigate('/inventory')
     // navigate('/inventory');
   }
 
-  function handleNavigate() {
-    navigate('/inventory')
-  }
+  // function handleNavigate() {
+  // }
+
+  
 
   return (
     <div>
@@ -67,7 +70,7 @@ export default function AddToInventoryPage({inventory, setInventory}) {
                   <p>Style: {record.style}</p>
                   <form onSubmit={() => handleAddRecord(record)}>
                     <button
-                      onClick={handleNavigate}
+                      // onClick={handleNavigate}
                       type="submit">
                         Add Record To Inventory
                     </button>
