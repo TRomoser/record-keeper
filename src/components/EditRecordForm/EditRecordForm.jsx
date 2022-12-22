@@ -1,6 +1,6 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
-export default function EditRecordForm(record, handleEditRecord) {
+export default function EditRecordForm({record, recordId, handleEditRecord, handleDeleteRecord}) {
   const [editFormData, setEditFormData] = useState({
     artist: '',
     year: '',
@@ -19,10 +19,17 @@ export default function EditRecordForm(record, handleEditRecord) {
     notes: ''
   })
 
+  useEffect(() => {
+    function fillForm() {
+      setEditFormData(record);
+    }
+    fillForm();
+  }, [record])
+
   function handleChange(evt) {
     setEditFormData({...editFormData, [evt.target.name]: evt.target.value});
   };
-
+  console.log(recordId)
   return (
     <div className="card">
       <div className="card-left">
@@ -32,7 +39,7 @@ export default function EditRecordForm(record, handleEditRecord) {
           type="text" 
           name="Artist/Title" 
           onChange={handleChange}
-          value={record.artist} 
+          value={editFormData.artist} 
           />
         </div>
         <div>
@@ -136,10 +143,18 @@ export default function EditRecordForm(record, handleEditRecord) {
           value={record.catno} 
           />
         </div>
-        {/* <div>
+        <div>
           <label htmlFor="Formats">Formats:</label>
-          <input type="text" name="Formats" value={record.formats.map(f => `${f.name}, ${f.qty}, ${f.descriptions.join}`)} />
-        </div> */}
+          <input type="text" name="Formats" />
+        </div>
+        <div>
+          <button onClick={() => handleEditRecord(recordId, editFormData)} >
+            Update This Record
+            </button>
+        </div>
+          <button onClick={() => handleDeleteRecord(recordId)} >
+            Delete Record
+          </button>
       </div>
     </div>
   )

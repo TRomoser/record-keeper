@@ -1,0 +1,14 @@
+h1 {
+  border: 1px solid #90b4d8;
+  border-radius: 12%;
+  box-sizing: border-box;
+  background-color: #4d5fb17b;
+  color: #00132C;
+  font-size: 16px;
+  color: bisque;
+  font-weight: 700;
+  line-height: 24px;
+  padding: 16px 23px;
+  position: relative;
+}
+

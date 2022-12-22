@@ -2,3 +2,14 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
+
+/* .form-container {
+  display: flex;
+  justify-content: center;
+  overflow: auto; 
+}
+
+form {
+  width: 50%;
+}
+ */

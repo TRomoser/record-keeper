@@ -23,9 +23,10 @@ export default function AddInventoryForm({ handleAddRecord }) {
 
   function handleChange(evt) {
     setFormData({...formData, [evt.target.name]: evt.target.value});
+    console.log(formData)
   };
-
-  async function handleAddSubmit(evt) {
+  
+  function handleAddSubmit(evt) {
     evt.preventDefault();
     handleAddRecord(formData);
     setFormData({
@@ -45,15 +46,17 @@ export default function AddInventoryForm({ handleAddRecord }) {
       formats: [],
       notes: ''
       });
+      navigate('/inventory');
   };
 
-  function handleNavigate() {
-    navigate('/inventory')
-  }
+  // function handleNavigate() {
+  //   navigate('/inventory')
+  // }
 
   return (
-    <div className="form-container">
+    <>
       <h1>Add Record Form</h1>
+    <div className="form-container">
       <form autoComplete="off" onSubmit={handleAddSubmit}>
         {/* <div className="form-column"> */}
         <label htmlFor="artist">Artist</label>
@@ -164,10 +167,13 @@ export default function AddInventoryForm({ handleAddRecord }) {
           onChange={handleChange}
         />
         <button 
-        onClick={handleNavigate} 
-        type="submit">Add Record</button>
+        type="submit"
+        onClick={handleAddSubmit}>
+          Add Record
+        </button>
       {/* </div> */}
       </form>
     </div>
+    </>
   )
 }

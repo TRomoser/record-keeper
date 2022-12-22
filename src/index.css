@@ -1,7 +1,7 @@
 /* CSS Custom Properties */
 :root {
   --white: #FFFFFF;
-  --tan-1: #FBF9F6;
+  --tan-1: #f5f2ef1f;
   --tan-2: #E7E2DD;
   --tan-3: #E2D9D1;
   --blue-1: rgb(18, 24, 38);
@@ -19,7 +19,9 @@ body {
   font-family: 'Rubik', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--blue-1);
+  /* background-color: var(--blue-1); */
+  background-image: url(https://i.imgur.com/iihQxXx.png);
+  /* background-color: bg-gray-900; */
   padding: 2vmin;
   height: 100vh;
   color: rgb(222, 212, 175);
@@ -67,9 +69,9 @@ code {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: var(--tan-1);
+  background-color: var(--tan-3);
   color: var(--text-dark);
-  border: .1vmin solid var(--tan-3);
+  border: .1vmin solid var(--blue-1);
   border-radius: 1vmin;
   padding: .6vmin;
   text-align: center;
@@ -116,18 +118,45 @@ input:focus {
 }
 
 button, a.button {
-  margin: 1vmin;
-  padding: 1vmin;
-  color: var(--white);
-  background-color: var(--orange);
-  font-size: 2vmin;
-  font-weight: bold;
+  background-color: transparent;
+  border: 1px solid #90b4d8;
+  border-radius: 12%;
+  box-sizing: border-box;
+  background-color: #4d5fb1;
+  color: #00132C;
+  /* font-family: "Avenir Next LT W01 Bold",sans-serif; */
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  padding: 16px 23px;
+  margin: .5em 0 .5em 0;
+  position: relative;
   text-decoration: none;
-  text-align: center;
-  border: .1vmin solid var(--tan-2);
-  border-radius: .5vmin;
-  outline: none;
-  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:before {
+  background-color: #4d5fb1;
+  content: "";
+  height: calc(100% + 3px);
+  position: absolute;
+  right: -6px;
+  top: -5px;
+  transition: background-color 300ms ease-in;
+  width: 100%;
+  z-index: -1;
+}
+
+button:hover:before {
+  background-color: #7278bc;
+}
+
+@media (min-width: 768px) {
+  button {
+    padding: 16px 32px;
+  }
 }
 
 button.btn-sm {
@@ -142,10 +171,18 @@ button.btn-xs {
 
 button:disabled, form:invalid button[type="submit"] {
   cursor: not-allowed;
-  background-color: var(--blue-1);
+  background-color: #1d1c3782;
 }
 
 button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
+}
+
+.card {
+  margin: 1em 0 1em 0;
+}
+
+form {
+  
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
@@ -7,12 +7,13 @@ import SplashPage from '../SplashPage/SplashPage';
 import NavBar from '../../components/NavBar/NavBar';
 import InventoryPage from '../InventoryPage/InventoryPage';
 import AddToInventoryPage from '../AddToInventoryPage/AddToInventoryPage';
-import RecordDetailPage from '../RecordDetailPage/RecordDetailPage'
-import * as recordsAPI from '../../utilities/records-api'
+import RecordDetailPage from '../RecordDetailPage/RecordDetailPage';
+import * as recordsAPI from '../../utilities/records-api';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
-  const [inventory, setInventory] = useState([])
+  const [inventory, setInventory] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(function() {
     async function getInventory() {
@@ -26,9 +27,15 @@ export default function App() {
     await recordsAPI.deleteRecord(id);
     const newInventory = inventory.filter(record => record._id !== id);
     setInventory(newInventory);
+    navigate('/InventoryPage');
   }
 
-
+  async function handleEditRecord(recordId, editedRecord) {
+    await recordsAPI.updateRecord(recordId, editedRecord);
+    const updatedInventory = await recordsAPI.index();
+    setInventory(updatedInventory);
+    navigate('/InventoryPage');
+  }
 
   return (
     <main className="App">
@@ -39,7 +46,13 @@ export default function App() {
               {/* Route components in here */}
               <Route path="/inventory" element={<InventoryPage inventory={inventory} />} />
               <Route path="/inventory/new" element={<AddToInventoryPage setInventory={setInventory} />} />
-              <Route path="/inventory/:recordId" element={<RecordDetailPage user={user} inventory={inventory} handleDeleteRecord={handleDeleteRecord} />} />
+              <Route path="/inventory/:recordId" 
+              element={<RecordDetailPage 
+              user={user} 
+              inventory={inventory} 
+              handleEditRecord={handleEditRecord}
+              handleDeleteRecord={handleDeleteRecord} 
+              />} />
               <Route path="/*" element={<Navigate to='/inventory' />} />
             </Routes>
           </>
@@ -50,7 +63,7 @@ export default function App() {
           </Routes>
           <SplashPage user={user} setUser={setUser} />
           {/* <AuthPage user={user} setUser={setUser} /> */}
-          </>
+        </>
       }
     </main>
   );

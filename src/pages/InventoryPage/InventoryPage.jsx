@@ -1,12 +1,11 @@
-import { useEffect } from 'react'
+import './InventoryPage.css'
 import RecordCard from '../../components/RecordCard/RecordCard'
-import SearchInventoryForm from '../../components/SearchInventoryForm/SearchInventoryForm'
+// import SearchInventoryForm from '../../components/SearchInventoryForm/SearchInventoryForm'
 
 export default function InventoryPage({ inventory }) {
   return (
     <div>
-      <h1>Search Inventory</h1>
-      <SearchInventoryForm />
+      {/* <SearchInventoryForm /> */}
       <h1>Inventory</h1>
       {inventory.map((record, idx)=> <RecordCard r={record} key={idx} />)}
     </div>
