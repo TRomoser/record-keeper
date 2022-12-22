@@ -1,6 +1,6 @@
 # RecordKeeper
 
-RecordKeeper is a fun app that allows a user to document and store their record collection. If they want to add their record information manually they have plenty of options in order to be very specific about their collections. They also have the ability to search Discogs and add the record data, just by clicking a button! RecordKeeper is looking to make our users lives easier.
+RecordKeeper is an app that allows a user to document and store their record collection. If they want to add their record information manually they have plenty of options in order to be very specific about their collections. They also have the ability to search Discogs and add the record data, just by clicking a button! RecordKeeper is looking to make our users lives easier.
 
 ![Logo](https://i.imgur.com/TokguiO.png)
 
@@ -11,7 +11,7 @@ more features.
 
 ![Splash Screen](https://i.imgur.com/Kdz5SRK.png)
 
-Users can view their inventory, at a glance, and see pertinent details. They can also click the details page to see more the details of the record.
+Users can view their inventory, at a glance, and see pertinent details. They can also click the details page to see more the details of their record.
 
 ![Inventory Page](https://i.imgur.com/G9yjdhg.png)
 
@@ -25,11 +25,11 @@ Here the user is able to search the Discogs database and refine their search usi
 ![Search Discogs](https://i.imgur.com/CCXVKrl.png)
 ![Search Results](https://i.imgur.com/9jD5tOS.png)
 
-For the collecter of harder to find records, the user is able to add thier own records and choose exactly how much or little information they want to provide!
+For the collecter of harder to find records, the user is able to add thier own records and choose exactly how much or how little information they want to provide.
 
 ![Add Your Own Record](https://i.imgur.com/urLOaHD.png)
 
-All in all we believe that RecordKeeper is a fun app for collectors and hobbyist alike! The potential for growth is huge with additional planned features and possibly expanding into a small buisness solution for record stores.
+All in all we believe that RecordKeeper is a fun app for collectors and hobbyist alike. The potential for growth is huge with additional planned features and possibly expanding into a small buisness solution for record stores.
 
 # Technologies Used
 
@@ -57,8 +57,8 @@ Check out our [planning on Trello](https://trello.com/b/9p2OErQP/recordkeeper)!
 
 # Getting Started
 
-Click this link to check out our app! --> [recordKeeper](https://record-keeper.herokuapp.com/)
+Click this link to check out our app! --> [RecordKeeper](https://record-keeper.herokuapp.com/)
 
 # Next Steps
 
-There are plenty of plans to develop further features. We want to make this an app that users can download to their phone using iOS and android. We plan to implement user profiles, and hopefully eventually make this a full-fledged inventory app for small buisness record stores. With that in mind we also plan to implement quantities of records, stores that have a centralized database shared between them, the ability to connect mulitiple users to stores, and OAUTH authentication.
+There are plans to develop further features. We want to make this an app that users can download to their phone using iOS and android. We plan to implement user profiles, and hopefully eventually make this a full-fledged inventory app for small buisness record stores. With that in mind we also plan to implement quantities of records, stores that have a centralized database shared between them, the ability to connect mulitiple users to stores, and OAUTH authentication with admin authorization.
