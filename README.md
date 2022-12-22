@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# RecordKeeper
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+RecordKeeper is a fun app that allows a user to document and store their record collection. If they want to add their record information manually they have plenty of options in order to be very specific about their collections. They also have the ability to search Discogs and add the record data, just by clicking a button! RecordKeeper is looking to make our users lives easier.
 
-## Available Scripts
+![Logo](https://i.imgur.com/TokguiO.png)
 
-In the project directory, you can run:
+# Images:
 
-### `npm start`
+Here is the landing page for visitors. Folks can sign up or log in if they already have an account to access 
+more features.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![Splash Screen](https://i.imgur.com/Kdz5SRK.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Users can view their inventory, at a glance, and see pertinent details. They can also click the details page to see more the details of the record.
 
-### `npm test`
+![Inventory Page](https://i.imgur.com/G9yjdhg.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+On the record detail page our users have the ability to see more deatils about the record and click a button to show an edit/delete form.
 
-### `npm run build`
+![Record Detail Page](https://i.imgur.com/1yUZGIv.png)
+![Record Edit Page](https://i.imgur.com/SkRHhjG.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Here the user is able to search the Discogs database and refine their search using many different fields. They can add the record to their inventory with just one button click.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Search Discogs](https://i.imgur.com/CCXVKrl.png)
+![Search Results](https://i.imgur.com/9jD5tOS.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+For the collecter of harder to find records, the user is able to add thier own records and choose exactly how much or little information they want to provide!
 
-### `npm run eject`
+![Add Your Own Record](https://i.imgur.com/urLOaHD.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+All in all we believe that RecordKeeper is a fun app for collectors and hobbyist alike! The potential for growth is huge with additional planned features and possibly expanding into a small buisness solution for record stores.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Technologies Used
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![React](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![Express](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)
 
-## Learn More
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
-### Code Splitting
+![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![Trello](https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=trello&logoColor=white)
 
-### Analyzing the Bundle Size
+![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
 
-### Making a Progressive Web App
+# Planning
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Check out our [planning on Trello](https://trello.com/b/9p2OErQP/recordkeeper)!
 
-### Advanced Configuration
+# Getting Started
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Click this link to check out our app! --> [recordKeeper](https://record-keeper.herokuapp.com/)
 
-### Deployment
+# Next Steps
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+There are plenty of plans to develop further features. We want to make this an app that users can download to their phone using iOS and android. We plan to implement user profiles, and hopefully eventually make this a full-fledged inventory app for small buisness record stores. With that in mind we also plan to implement quantities of records, stores that have a centralized database shared between them, the ability to connect mulitiple users to stores, and OAUTH authentication.
